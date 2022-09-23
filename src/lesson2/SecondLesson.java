@@ -74,7 +74,7 @@ public class SecondLesson {
         System.out.println(resB); // true
 
 
-        // if switch
+        // IF... ELSE IF... ELSE
 
         int state = 55;
         // если state равен 0, вывести в консоль "Закрытие приложения"
@@ -100,7 +100,7 @@ public class SecondLesson {
             System.out.println("Открытие приложения");
         } else System.out.println("Ошибка статуса");
 
-        // switch
+        // SWITCH
 
         // если state равен 0, вывести в консоль "Закрытие приложения"
         // если state равен 1 или state равен 100, вывести в консоль "Открытие приложения"
