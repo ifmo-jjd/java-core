@@ -5,6 +5,12 @@ package lesson1;
 многострочный
 комментарий
 */
+
+/**
+ * документирование
+ * кода
+ */
+
 public class FirstLesson {
     // точка входа в программу
     // psvm + Enter
@@ -61,7 +67,36 @@ public class FirstLesson {
         // byte z = (byte) x + y; // сложение byte или short дает int
         byte z = (byte) (x + y); // сложение byte или short дает int
         System.out.println(z);
+
+
+        // Остаток от деления
+        length = 9;
+        width = 2;
+        System.out.println(length % width); // 1
+        // 4.5 + 4.5
+        // 0.5 + 0.5 = 1
+
+        System.out.println(7 % 4); // 3
+        System.out.println(8 % 2); // 0
+        System.out.println(9 % 2); // 1
+        System.out.println(903 % 10); // 3
+
+        int number = 45; // 4 + 5
+        number = number / 10 + number % 10;
+        System.out.println(number);
+
+        // Арифметические операторы и операторы присваивания
+        int num = 10;
+        num += 10; // num = num + 10;
+        num -= 10; // num = num - 10;
+        num *= 10; // num = num * 10;
+        num /= 10; // num = num / 10;
+        num %= 10; // num = num % 10;
+        System.out.println(num); // 0
+
     }
 }
+
+
 
 
