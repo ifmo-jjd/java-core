@@ -118,8 +118,5 @@ public class SecondLesson {
                 System.out.println("Ошибка статуса");
         }
 
-
-
-
     }
 }
