@@ -136,7 +136,7 @@ public class SecondLesson {
             case 0, 1 -> System.out.println(200);
             case 2, 3 -> System.out.println(150);
             case 4, 5, 9 -> System.out.println(100);
-            default -> System.out.println(0);
+            // default -> System.out.println(0);
         }
 
         age = 2;
@@ -174,9 +174,13 @@ public class SecondLesson {
             int l = 2; // если переменная объявлена внутри {}
             System.out.println(k);
             System.out.println(l);
+            k = 10;
+            // int k = 100;
         }
         // System.out.println(l); // снаружи ее не существует
         System.out.println(k);
+        int l = 900;
+        System.out.println(l);
 
     }
 }
