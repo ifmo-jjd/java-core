@@ -119,5 +119,45 @@ public class SecondLesson {
                 System.out.println("Ошибка статуса");
         }
 
+        code = 3333;
+        if ((code == 2222) || (code == 3333) || (code == 4444)) {
+            System.out.println("Вы вошли в систему");
+        }
+
+        if (code == 2222 || code == 3333 || code == 4444) {
+            System.out.println("Вы вошли в систему");
+        }
+
+
+        age = 2;
+
+        int count =  switch (age){
+            case 0, 1 -> 200;
+            case 2, 3 -> 150;
+            case 4, 5 -> 100;
+            default -> 0;
+        };
+        System.out.println(count);
+
+        count =  switch (age){
+            case 0, 1 -> {
+                System.out.println("Результат на 0 - 1 год: " + 200);
+                yield 200;
+            }
+            case 2, 3 -> {
+                System.out.println("Результат на 2 - 3 года: " + 150);
+                yield 150;
+            }
+            case 4, 5 -> {
+                System.out.println("Результат на 4 - 5 лет: " + 100);
+                yield 100;
+            }
+            default -> {
+                System.out.println("Результат для собаки старше 5 лет: " + 0);
+                yield 100;
+            }
+        };
+        System.out.println(count);
+
     }
 }
