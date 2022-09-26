@@ -90,11 +90,34 @@ public class ThirdLesson {
             if (s % 2 == 0) System.out.println(s);
         }
 
+        // BREAK и выход их внешних циклов
+        a = 100;
+        zero:
+        while (a > 50) {
+            System.out.println(a);
+            a -= 10;
+        }
 
-        /*System.out.println("=======");
-        System.out.println("=======");
-        System.out.println("=======");*/
+        int plusCount = 4;
+        first: // имя цикла
+        while (true) {
+            System.out.println("+++ Введите число +++");
+            userNumber = in.nextInt();
+            second: // имя цикла
+            while (true) {
+                if (userNumber <= 1) break; // выход из текущего цикла
+                // (внешний цикл снова запросит число, далее программа снова начнет выполнение цикла second)
 
+                if (userNumber > 2) break second; // выход из цикла с именем second, т.е. текущего цикла
+                // (внешний цикл снова запросит число, далее программа снова начнет выполнение цикла second)
+
+                if (userNumber == 2) break first; // выход из цикла с именем first
+                // (внешний цикл прерывается, программа перестает запрашивать числа)
+
+                // if (userNumber == 3) break zero; так нельзя, zero не связан с циклами first и second
+            }
+            System.out.println(userNumber);
+        }
 
     }
 }
