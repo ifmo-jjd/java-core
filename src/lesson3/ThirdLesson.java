@@ -98,7 +98,7 @@ public class ThirdLesson {
             a -= 10;
         }
 
-        int plusCount = 4;
+
         first: // имя цикла
         while (true) {
             System.out.println("+++ Введите число +++");
