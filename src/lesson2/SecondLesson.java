@@ -131,10 +131,19 @@ public class SecondLesson {
 
         age = 2;
 
-        int count =  switch (age){
+        // синтаксис switch в стиле лямбда выражений
+        switch (age){
+            case 0, 1 -> System.out.println(200);
+            case 2, 3 -> System.out.println(150);
+            case 4, 5, 9 -> System.out.println(100);
+            default -> System.out.println(0);
+        }
+
+        age = 2;
+        int count = switch (age){
             case 0, 1 -> 200;
-            case 2, 3 -> 150;
-            case 4, 5 -> 100;
+            case 2, 3 -> 150; /* но не System.out.println(150) */
+            case 4, 5, 9 -> 100 + 100;
             default -> 0;
         };
         System.out.println(count);
@@ -158,6 +167,16 @@ public class SecondLesson {
             }
         };
         System.out.println(count);
+
+        int k = 1;
+        // область видимости переменных - блок { }
+        {
+            int l = 2; // если переменная объявлена внутри {}
+            System.out.println(k);
+            System.out.println(l);
+        }
+        // System.out.println(l); // снаружи ее не существует
+        System.out.println(k);
 
     }
 }
