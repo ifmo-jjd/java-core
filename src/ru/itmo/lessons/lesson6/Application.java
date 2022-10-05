@@ -57,7 +57,10 @@ public class Application {
         System.out.println(book4.getPageCount());
         book4.setAuthor(author2);
 
-        Shelf shelf = new Shelf();
+        Shelf shelf = new Shelf(3); // [null, null, null]
+        Shelf shelf2 = new Shelf(9);
+        // [null, null, null, null, null, null, null, null, null]
+
         shelf.addBook(book1);
         shelf.addBook(book2);
         shelf.addBook(book3);
