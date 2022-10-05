@@ -26,7 +26,8 @@ public class Unit {
     }
 
     public void plusHealth(int healthScore) {
-        // если юнит жив, увеличить здоровье на healthScore
+        // если юнит жив, увеличить здоровье на healthScore,
+        // но не больше изначального
     }
 
     public void minusHealth(int healthScore) {
