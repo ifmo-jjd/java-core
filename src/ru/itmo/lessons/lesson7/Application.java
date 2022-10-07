@@ -5,14 +5,38 @@ import ru.itmo.lessons.lesson7.units.Infantry;
 import ru.itmo.lessons.lesson7.units.King;
 import ru.itmo.lessons.lesson7.units.Knight;
 
+import java.util.Scanner;
+
 // ru.itmo.lessons.lesson7.Application
 public class Application {
+    // 1. final класс - запрет наследования
+    // 2. final метод - запрет переопределения метода
+    // 3. final свойства - запрет изменения значений,
+    // значение final свойству нужно присвоить либо при объявлении,
+    // либо в конструкторе (сеттеры запрещены)
+    // 4. final аргумент метода доступен только для чтения
+
+    public void finalArgs(final int a, final Infantry infantry){
+        System.out.println(a);
+        int b = a * a;
+        // a = 90; ошибка, тк аргумент final
+
+        System.out.println(infantry);
+        System.out.println(infantry.getHealthScore());
+        // infantry = new Infantry(12, 22, 1); ошибка, тк аргумент final
+        // НО можно изменять значения свойст объекта
+        infantry.plusHealth(100);
+    }
+
     public static void main(String[] args) {
+
         King king01 = new King(2000);
         king01.rest();
 
         King king02 = new King(2000);
         king02.rest(king01);
+
+        king01.startBattle(king02);
 
         System.out.println(king01.getHealthScore());
 
@@ -38,8 +62,7 @@ public class Application {
             battleUnit.attack(knight01);
         }
 
-
-
-
     }
 }
+
+

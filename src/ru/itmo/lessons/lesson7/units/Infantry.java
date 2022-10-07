@@ -2,7 +2,7 @@ package ru.itmo.lessons.lesson7.units;
 
 import ru.itmo.lessons.lesson7.base.BattleUnit;
 
-public class Infantry extends BattleUnit {
+public final class Infantry extends BattleUnit {
     private int additionalAttack;
 
     public Infantry(int healthScore, int attackScore,

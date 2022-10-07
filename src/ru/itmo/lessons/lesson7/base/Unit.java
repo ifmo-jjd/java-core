@@ -9,7 +9,7 @@ abstract public class Unit {
 
     // protected - доступ в дочернем классе или внутри пакета
     protected int healthScore;
-    private int maxHealthScore;
+    private final int maxHealthScore;
 
     public Unit(int healthScore){
         if (healthScore < 1) {

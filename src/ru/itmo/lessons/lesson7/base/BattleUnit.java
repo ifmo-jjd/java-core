@@ -17,4 +17,24 @@ abstract public class BattleUnit extends Unit {
 
     // абстрактный метод - метод без реализации (без {})
     abstract public void attack(BattleUnit enemy);
+
+    // фабричный метод
+    public static BattleUnit getBattleUnit(){
+        String[] types = {"knight", "infantry"};
+        // TODO: дописать реализацию метода
+        // тип создаваемого юнита определяем через Math.random
+        // в зависимости от типа создаем объект того или иного юнита
+    }
+
+    public static BattleUnit[] getBattleUnits(int count){
+        BattleUnit[] units = new BattleUnit[count];
+        for (int i = 0; i < units.length; i++) {
+            // в статических методах можно обратиться ТОЛЬКО
+            // к статическим свойствам или вызвать статические методы
+            // класса
+            units[i] = getBattleUnit();
+        }
+        return units;
+    }
 }
+
