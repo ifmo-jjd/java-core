@@ -15,6 +15,6 @@ abstract public class BattleUnit extends Unit {
         return attackScore;
     }
 
-    // метод без реализации (без {})
+    // абстрактный метод - метод без реализации (без {})
     abstract public void attack(BattleUnit enemy);
 }
