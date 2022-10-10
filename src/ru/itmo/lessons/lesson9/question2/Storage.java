@@ -14,6 +14,12 @@ public class Storage {
     }
 
     public Storage(String[] strings) {
+        /*
+        if (strings == null) {
+            throw new IllegalArgumentException("В конструктор необходимо передать массив");
+        }
+        this.strings = strings;
+        */
         this.strings = Objects.requireNonNull(strings, "В конструктор необходимо передать массив");
     }
 
@@ -21,15 +27,16 @@ public class Storage {
         // Добавление в маасив strings без цикла?
     }
 
-    public void getStringsCount(){
+    public /*void*/ int getStringsCount(){
         int count = 0;
         for (String string : strings) {
             if (string != null) count++;
         }
-        System.out.println(count);
+        // System.out.println(count);
+        return count;
     }
 
-    public void getStrings(){
+    public void /*getStrings*/ printStrings(){
         System.out.println(Arrays.toString(strings));
     }
 

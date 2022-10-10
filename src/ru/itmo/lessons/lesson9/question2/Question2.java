@@ -1,6 +1,6 @@
 package ru.itmo.lessons.lesson9.question2;
 
-public class Question3 {
+public class Question2 {
     public static void main(String[] args) {
         Storage storage = new Storage(4);
         // элемент должен быть добавлен в массив по индексу 0

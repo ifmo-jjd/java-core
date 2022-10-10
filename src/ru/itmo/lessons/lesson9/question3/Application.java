@@ -13,5 +13,14 @@ public class Application {
             System.out.println(flower);
 
         }
+
+        Flower flower01 = Flower.createFlower();
+        Flower flower02 = Flower.createFlower();
+        Flower flower03 = Flower.createFlower();
+
+        System.out.println(flower01);
+        System.out.println(flower02);
+        System.out.println(flower03);
+
     }
 }
