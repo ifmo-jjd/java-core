@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class Storage {
+    private int stringsCount;
     private String[] strings;
 
     public Storage(int len) {
@@ -24,7 +25,12 @@ public class Storage {
     }
 
     public void addString(String newString) {
-        // Добавление в маасив strings без цикла?
+        if (stringsCount == strings.length) {
+            System.out.println("В массиве нет места для " + newString);
+            return;
+        }
+        strings[stringsCount] = newString;
+        stringsCount++;
     }
 
     public /*void*/ int getStringsCount(){
