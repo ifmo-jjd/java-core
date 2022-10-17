@@ -1,5 +1,7 @@
 package ru.itmo.lessons.lesson12;
 
+import java.io.IOException;
+
 public class ExceptionLesson {
     public static void main(String[] args) {
         // Error - ошибки связаны с проблемами уровня JVM (например, нехватка памяти).
@@ -97,5 +99,37 @@ public class ExceptionLesson {
             System.out.println("Finally");
         }
 
+
+        try {
+            readFromJsonFile("file.json");
+        } catch (IOException e) {
+            System.out.println("Невозможно прочитать из файла");
+            // throw new RuntimeException(e);
+        }
+
+        try {
+            System.out.println(Actions.sum(-2, 5));
+        } catch (CalculatorException e) {
+            System.out.println(e.getMessage());
+        }
+
+        Object obj = null;
+        try {
+            obj = new Object();
+        } catch (RuntimeException exception) {
+            System.out.println("Ошибка времени выполнения");
+        }
+
+        System.out.println(obj.equals("object"));
     }
+
+
+    public static void readFromJsonFile(String fileName) throws IOException {
+        if (!fileName.endsWith(".json")) {
+            // исключение времени компиляции
+            throw new IOException("Программа работает только с файлами типа json");
+        }
+        System.out.println("Чтение из json файла");
+    }
+
 }
