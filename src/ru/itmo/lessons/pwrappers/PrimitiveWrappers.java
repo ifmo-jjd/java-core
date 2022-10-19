@@ -67,6 +67,7 @@ public class PrimitiveWrappers {
 
         // для сравнения ссылочных типов используем метод equals
 
+
     }
 
     public static void printDoubles(Double[] doubles){
