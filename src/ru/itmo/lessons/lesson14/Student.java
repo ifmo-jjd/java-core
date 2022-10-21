@@ -45,7 +45,14 @@ public class Student {
                 '}';
     }
 
-    // TODO:: переопределить метод equals -
-    //  объекты считать равными, если их id равны
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Student)) return false;
+
+        Student student = (Student) o;
+
+        return id == student.id;
+    }
 
 }
