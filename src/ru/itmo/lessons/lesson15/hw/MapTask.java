@@ -6,8 +6,8 @@ public class MapTask {
     public static void main(String[] args) {
         // FIXME:: В решениях не использовать lambda выражения и stream API
 
-        // TODO:: написать статический метод, который принимает на вход мапу (firstTaskMap) и город (city)
-        //  и формирует список (List) логинов, которые соответствуют переданному городу
+        // TODO:: написать статический метод, который принимает на вход мапу (firstTaskMap) и город (city),
+        //  формирует и возвращает список (List) логинов, которые соответствуют переданному городу
 
         HashMap<String, String> firstTaskMap = new HashMap<>();
         firstTaskMap.put("qwe", "Тверь");
