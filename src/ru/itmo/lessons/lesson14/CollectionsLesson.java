@@ -167,7 +167,12 @@ public class CollectionsLesson {
         studentTreeSet02.add(student3);
 
 
+        Comparator<Magazine> magazineComparator01 = new TitleComparator();
+        Comparator<Magazine> magazineComparator02 = new PicturesCountComparator();
+        Comparator<Magazine> magazineComparator03 = new TitleComparator()
+                .thenComparing(new PicturesCountComparator());
 
+        TreeSet<Magazine> magazineTreeSet = new TreeSet<>(magazineComparator03);
 
 
 
