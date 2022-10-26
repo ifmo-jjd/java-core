@@ -5,9 +5,11 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 
 public class LambdaLesson {
+
     private static void calculate(Operation operation, double x, double y) {
         System.out.println("Результат: " + operation.execute(x, y));
     }
+
 
     public static void main(String[] args) {
         // объявить интерфейс Operation
