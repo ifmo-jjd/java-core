@@ -22,7 +22,10 @@ public class University {
     // TODO:: принимает на вход predicate, возвращает новый список, состоящий из курсов,
     //  которые прошли проверку методом test
     public List<Course> getFilteredCourses(Predicate<Course> condition) { // условие для фильтрации
-
-        return null;
+        List<Course> filtered = new ArrayList<>();
+        for (Course course : courses) {
+            if (condition.test(course)) filtered.add(course);
+        }
+        return filtered;
     }
 }
