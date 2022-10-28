@@ -1,6 +1,12 @@
 package ru.itmo.lessons.lesson16;
 
 
+import ru.itmo.lessons.lesson16.education.Course;
+
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
@@ -75,6 +81,38 @@ public class LambdaLesson {
         };
         System.out.println(doubled.apply(100));
         System.out.println(doubled.andThen(str).apply(12));
+
+        // ссылки на метод
+        Operation plus02 = (first, second) -> first + second;
+        /* static double sum(double a, double b) {
+            return a + b;
+        } */
+        Operation plus03 = Double::sum; // ссылки на метод класса Double
+        System.out.println(plus03.execute(55.98, 8.11));
+
+        HashSet<Integer> integerHashSet = new HashSet<>(Arrays.asList(2, 6, 7, 90, 11));
+
+        Consumer<Integer> integerConsumer01 = integer -> System.out.println(integer);
+        integerHashSet.forEach(integerConsumer01);
+
+        Consumer<Integer> integerConsumer02 = System.out::println;
+        integerConsumer02.accept(100);
+        // integerConsumer02.accept(/* элемент коллекции */);
+        integerHashSet.forEach(integerConsumer02);
+
+        Comparator<Course> comparingByName01 = (course01, course02) ->
+                course01.getName().compareTo(course02.getName());
+
+        Function<Course, String> byNameFN01 = course -> course.getName();
+
+        Function<Course, String> byNameFN02 = Course::getName;
+
+        System.out.println(byNameFN02.apply(Course.getInstance()));
+
+        Comparator<Course> comparingByName02 = Comparator.comparing(byNameFN01);
+
+        Comparator<Course> comparingByName03 = Comparator.comparing(byNameFN02);
+
 
     }
 }
