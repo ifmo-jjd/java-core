@@ -18,4 +18,8 @@ public class PairContainer<T, K> {
     public K getValue() {
         return value;
     }
+
+    public void setValue(K value) {
+        this.value = value;
+    }
 }
