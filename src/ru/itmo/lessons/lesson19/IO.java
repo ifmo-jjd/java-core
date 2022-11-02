@@ -32,9 +32,12 @@ public class IO {
         return result;
     }
 
-    public static byte[] readFromFile(File file){
+    public static byte[] readFromFile(File file)
+    /* throws IOException */
+    {
         byte[] result = null;
         try (FileInputStream fileInput = new FileInputStream(file)){
+            // если файл не найден, будет сгенерировано исключение
             result = fileInput.readAllBytes();
         } catch (FileNotFoundException e) {
             // throw new RuntimeException(e);
@@ -43,13 +46,17 @@ public class IO {
             // throw new RuntimeException(e);
             System.out.println("Не удалось прочитать данные из файла");
         }
+        System.out.println(new String(result));
         return result;
     }
 
     public static boolean writeFromConsole(File file){
         boolean result = false;
         try (FileOutputStream fileOutput = new FileOutputStream(file, true);
+             // классы - декораторы
              BufferedOutputStream buffer = new BufferedOutputStream(fileOutput)) {
+            // new BufferedOutputStream(fileOutput) 8192
+            // new BufferedOutputStream(fileOutput, 512) 512
 
             Scanner scanner = new Scanner(System.in);
             while (true){
@@ -57,6 +64,7 @@ public class IO {
                 String userInput = scanner.nextLine();
                 if ("stop".equalsIgnoreCase(userInput)) break;
                 buffer.write(userInput.getBytes());
+                // fileOutput.write(накопленные байты);
             }
             result = true;
         } catch (IOException e) {

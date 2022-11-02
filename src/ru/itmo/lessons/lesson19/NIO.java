@@ -16,6 +16,7 @@ public class NIO {
             long fileSize = inChannel.size();
 
             ByteBuffer buffer = ByteBuffer.allocate((int) fileSize);
+            // из inChannel читаем в buffer
             inChannel.read(buffer);
             buffer.flip();
 
@@ -39,6 +40,7 @@ public class NIO {
 
             buffer.put(strBytes);
             buffer.flip();
+            // пишем из buffer в channel
             channel.write(buffer);
         } catch (IOException e) {
             e.printStackTrace();

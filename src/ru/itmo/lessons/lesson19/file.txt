@@ -43,11 +43,15 @@ Buffer - буфер: ByteBuffer, CharBuffer, IntBuffer, DoubleBuffer и тп
     Основные методы:
     put - добавление данных в буфер (смещение position)
     get - получение данных из буфера (смещение position)
-    flip - устанавливает limit к текущей position, а position на 0 (для записи или get операций)
-    clear - устанавливает limit к capacity, а position на 0 (для чтения или put операций)
+    flip - устанавливает limit к текущей position, а position на 0
+    (для записи или get операций)
+
+    clear - устанавливает limit к capacity, а position на 0
+    (для чтения или put операций)
     rewind - устанавливает position на 0 (для повторного чтения)
 
-Channel - канал ввода - вывода: FileChannel, DatagramChannel, SocketChannel, ServerSocketChannel
+Channel - канал ввода - вывода:
+FileChannel, DatagramChannel, SocketChannel, ServerSocketChannel
 
 Selector - позволяет переключаться между каналами, в зависимости от условий
 
