@@ -6,7 +6,7 @@ import java.nio.channels.FileChannel;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 
-public class NIOFiles {
+public class NIO {
 
     private static void readAllBytes(){
         Path fileName = Path.of("nio-data.txt");
