@@ -1,8 +1,9 @@
 package ru.itmo.lessons.lesson20;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
-public class Figure {
+public class Figure implements Serializable {
     private final Point[] points;
 
     public Figure(int pointsCount) {

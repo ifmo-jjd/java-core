@@ -1,11 +1,18 @@
 package ru.itmo.lessons.lesson20;
 
+import java.io.*;
 import java.util.Objects;
 
-public class Point implements Cloneable{
-    private final int x;
-    private final int y;
 
+public class Point implements Cloneable, /*Serializable*/ Externalizable {
+    private static final long serialVersionUID = 1L;
+
+    transient public final String description = "Для создания точки необходимо" +
+            "указать 2 координаты";
+    private int x;
+    private int y;
+
+    public Point(){} // требуется для Externalizable
     public Point(int x, int y){
         this.x = x;
         this.y = y;
@@ -48,5 +55,18 @@ public class Point implements Cloneable{
                 "x=" + x +
                 ", y=" + y +
                 '}';
+    }
+
+    // вызывается ObjectOutputStream при сериализации
+    @Override
+    public void writeExternal(ObjectOutput out) throws IOException {
+        out.writeInt(x);
+        out.writeInt(y);
+    }
+    // вызывается ObjectInputStream при десериализации
+    @Override
+    public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+        x = in.readInt();
+        y = in.readInt();
     }
 }
