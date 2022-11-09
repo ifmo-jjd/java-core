@@ -35,7 +35,10 @@ public class TCPServerIO {
     }
 
     public static void main(String[] args) {
-        // FIXME:: Задание - запуск программы с аргументами (порт)
-        new TCPServerIO(8090).run();
+        // Integer.parseInt(); -> возвращает int
+        // Integer.valueOf(); -> возвращает Integer
+        // что делать, если аргумент не задан, его нельзя преобразовать в int
+        // или число не может быть использовано в качестве значения port?
+        new TCPServerIO(Integer.parseInt(args[0])).run();
     }
 }

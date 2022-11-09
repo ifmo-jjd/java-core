@@ -24,9 +24,13 @@ public class TCPClientIO {
         String name = scanner.nextLine();
 
         while (true){
-            // FIXME:: Задание - выход по команде exit
             System.out.println("Введите сообщение");
             String text = scanner.nextLine();
+
+            if ("/exit".equalsIgnoreCase(text)){
+                System.out.println("Закрытие приложения");
+                return;
+            }
 
             Message message = new Message(name, text);
 
@@ -44,7 +48,6 @@ public class TCPClientIO {
     }
 
     public static void main(String[] args) {
-        // FIXME:: Задание - ip и port из properties файла
         new TCPClientIO("127.0.0.1", 8090).run();
     }
 }
