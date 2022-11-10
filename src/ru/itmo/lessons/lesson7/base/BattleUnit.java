@@ -1,6 +1,7 @@
 package ru.itmo.lessons.lesson7.base;
 
 abstract public class BattleUnit extends Unit {
+
     protected int attackScore;
 
     public BattleUnit(int healthScore, int attackScore){
@@ -24,6 +25,7 @@ abstract public class BattleUnit extends Unit {
         // TODO: дописать реализацию метода
         // тип создаваемого юнита определяем через Math.random
         // в зависимости от типа создаем объект того или иного юнита
+        return null;
     }
 
     public static BattleUnit[] getBattleUnits(int count){
