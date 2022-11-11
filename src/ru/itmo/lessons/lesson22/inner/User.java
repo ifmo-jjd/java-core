@@ -1,5 +1,9 @@
 package ru.itmo.lessons.lesson22.inner;
 
+// public класс верхнего уровня может быть только один в файле,
+// имя файла должно совпадать с именем класса
+// не public классов верхнего уровня может быть сколько угодно в файле,
+// на такая структура на практике считается плохим тоном
 public class User {
     private int startLevel;
     private String login;
@@ -29,7 +33,11 @@ public class User {
         private float balance;
 
         public Account(float balance) {
+            // this - ссылка на экземпляр Account
+            // User.this - ссылка на экземпляр User
+
             this.balance = balance + User.this.startLevel;
+            // this.balance = balance + startLevel;
         }
 
         public void updateBalance(int balance) {
