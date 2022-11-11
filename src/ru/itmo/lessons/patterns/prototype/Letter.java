@@ -1,8 +1,8 @@
-package ru.itmo.lessons.patterns.pattern02;
+package ru.itmo.lessons.patterns.prototype;
 
 import java.time.LocalDateTime;
 
-public class Letter {
+public class Letter implements Cloneable{
     private String title;
     private String text;
     private LocalDateTime created;
@@ -49,5 +49,18 @@ public class Letter {
         return recipient;
     }
 
-
+    // паттерн проектирования прототип
+    // реализован в java, т.к. метод clone объявлен в классе Object,
+    // при необходимости копирования данный метод нужно переопределить
+    @Override
+    public Letter clone() {
+        Letter letter = null;
+        try {
+            letter = (Letter) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new RuntimeException(e);
+        }
+        letter.created = LocalDateTime.now();
+        return letter;
+    }
 }

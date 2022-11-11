@@ -1,4 +1,4 @@
-package ru.itmo.lessons.patterns.pattern02;
+package ru.itmo.lessons.patterns.prototype;
 
 public class Pattern02 {
     public static void main(String[] args) {
