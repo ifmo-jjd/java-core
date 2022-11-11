@@ -8,7 +8,6 @@ public class Street {
 
     private String name;
     private String description;
-    // ...
 
     public Street(String name) {
         setName(name);
