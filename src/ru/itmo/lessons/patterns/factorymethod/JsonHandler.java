@@ -1,4 +1,4 @@
-package ru.itmo.lessons.patterns.pattern01;
+package ru.itmo.lessons.patterns.factorymethod;
 
 import java.io.File;
 
