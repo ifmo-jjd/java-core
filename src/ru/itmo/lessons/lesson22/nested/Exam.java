@@ -45,7 +45,7 @@ public class Exam {
         }
     }
 
-    public enum Subject {
+    public /* static */ enum Subject {
         MATHS("Математика"),
         ENGLISH("Английский язык"),
         MUSIC("Музыка"),
