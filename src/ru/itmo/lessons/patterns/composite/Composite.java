@@ -1,8 +1,15 @@
 
 package ru.itmo.lessons.patterns.composite;
 
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+
 public class Composite {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Image image01 = new Image("images/house", "House");
         Image image02 = new Image("images/tree", "Tree");
         Image image03 = new Image("images/sun", "Sun");
@@ -13,7 +20,6 @@ public class Composite {
 
         Gallery gallery01 = new Gallery("Wild Animals");
         // добавить image04, image05
-
 
         Image image06 = new Image("images/cat", "Cat");
         Image image07 = new Image("images/dog", "Dog");
@@ -28,5 +34,8 @@ public class Composite {
 
         GalleryEditor galleryEditor = new GalleryEditor(/* gallery03 */);
         galleryEditor.show();
+
+
+
     }
 }
