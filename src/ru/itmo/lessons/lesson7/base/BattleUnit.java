@@ -1,5 +1,6 @@
 package ru.itmo.lessons.lesson7.base;
 
+
 abstract public class BattleUnit extends Unit {
 
     protected int attackScore;
