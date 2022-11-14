@@ -2,6 +2,7 @@ package ru.itmo.lessons.patterns.composite;
 
 // единичное изображение
 // должна быть возможность отрисовки
+// Leaf
 public class Image implements Drawable{
     private String path;
     private String title;
@@ -12,5 +13,7 @@ public class Image implements Drawable{
     }
 
     @Override
-    public void draw() {}
+    public void draw() {
+        System.out.println("Отрисовка изображения " + title);
+    }
 }

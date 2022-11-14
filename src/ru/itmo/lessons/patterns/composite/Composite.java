@@ -7,6 +7,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class Composite {
     public static void main(String[] args) throws IOException {
@@ -19,22 +20,27 @@ public class Composite {
         Image image05 = new Image("images/Wolf", "Wolf");
 
         Gallery gallery01 = new Gallery("Wild Animals");
-        // добавить image04, image05
+        gallery01.addToGallery(image04);
+        gallery01.addToGallery(image05);
 
         Image image06 = new Image("images/cat", "Cat");
         Image image07 = new Image("images/dog", "Dog");
 
         Gallery gallery02 = new Gallery("Pets");
-        // добавить image06, image07
+        gallery02.addToGallery(image06);
+        gallery02.addToGallery(image07);
 
 
         Gallery gallery03 = new Gallery("Village");
-        // добавить gallery01, gallery02
+        gallery03.addToGallery(gallery01);
+        gallery03.addToGallery(gallery02);
+        gallery03.addToGallery(image01);
+        gallery03.addToGallery(image02);
+        gallery03.addToGallery(image03);
 
 
-        GalleryEditor galleryEditor = new GalleryEditor(/* gallery03 */);
+        GalleryEditor galleryEditor = new GalleryEditor(gallery03);
         galleryEditor.show();
-
 
 
     }
