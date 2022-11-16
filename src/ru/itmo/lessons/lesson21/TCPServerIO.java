@@ -13,7 +13,10 @@ public class TCPServerIO {
     public TCPServerIO(int port) {
         this.port = port;
     }
-
+    //команда `/help` - отобразить пользователю список доступных команд
+    //команда `/count` - отобразить пользователю количество сообщений,
+    // которые получил сервер (от всех клиентов)
+    //команда `/ping` - время, за которое сообщение доходит до сервера и возвращается обратно
     public void run(){
         try (ServerSocket serverSocket = new ServerSocket(port)){
             System.out.println("Сервер запущен...");
@@ -25,6 +28,9 @@ public class TCPServerIO {
 
                 Message fromClient = connection.readMessage();
                 System.out.println("От клиента: " + fromClient);
+
+                Command command = Command.getCommand(fromClient.getText(), this);
+                command.action();
 
                 Message message = new Message("Server", "Сообщение от сервера");
                 connection.sendMessage(message);
