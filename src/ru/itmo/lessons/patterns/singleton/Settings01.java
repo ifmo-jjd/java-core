@@ -64,4 +64,13 @@ public class Settings01 implements Serializable {
         return SETTINGS_01_INSTANCE;
     }
     */
+
+    @Override
+    protected Object clone() {
+        throw new IllegalStateException("Клонирование не поддерживается");
+    }
+
+    protected Object readResolve(){
+        return SETTINGS_01_INSTANCE;
+    }
 }

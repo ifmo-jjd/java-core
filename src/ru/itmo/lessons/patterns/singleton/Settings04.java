@@ -35,3 +35,5 @@ public class Settings04 {
         return Settings04Holder.SETTINGS_04_INSTANCE;
     }
 }
+
+

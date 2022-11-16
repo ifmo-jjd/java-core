@@ -23,6 +23,7 @@ public class Settings02 {
     // создание объекта происходит по умолчанию, а не по требованию
     private static volatile Settings02 SETTINGS_02_INSTANCE = new Settings02();
 
+
     private Settings02() {
         token = "nuny-4v3l-34cn22-m32r2";
         expire = LocalDate.now();
