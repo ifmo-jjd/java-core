@@ -1,5 +1,6 @@
 package ru.itmo.lessons.patterns.decorator;
 
+// класс, использующий функционал декораторов
 public class Fitness {
     private ILog logger;
 

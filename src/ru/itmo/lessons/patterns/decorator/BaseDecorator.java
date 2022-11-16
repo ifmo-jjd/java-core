@@ -1,5 +1,8 @@
 package ru.itmo.lessons.patterns.decorator;
 
+// родительский класс для всех классов-декораторов
+// декораторы должны ссылаться на общий тип,
+// ссылка должна устанавливаться через конструктор
 public abstract class BaseDecorator implements ILog {
     private ILog logger;
 

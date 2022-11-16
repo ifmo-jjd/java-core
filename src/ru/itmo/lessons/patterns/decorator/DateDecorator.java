@@ -2,6 +2,7 @@ package ru.itmo.lessons.patterns.decorator;
 
 import java.time.LocalDateTime;
 
+// реализация конкретного декоратора
 public class DateDecorator extends BaseDecorator{
     public DateDecorator(ILog logger) {
         super(logger);
