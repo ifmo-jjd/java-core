@@ -11,13 +11,13 @@ public class DeadLock {
 
             synchronized (object1){
                 try {
-                    System.out.println("thread1 -> object2");
+                    System.out.println("thread1 -> object1");
                     Thread.sleep(100);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
                 synchronized (object2){
-                    System.out.println("thread1 -> object2 + object1");
+                    System.out.println("thread1 -> object1 + object2");
                 }
             }
         });
@@ -27,7 +27,7 @@ public class DeadLock {
             System.out.println(Thread.currentThread().getName() + " start");
             synchronized (object2){
                 try {
-                    System.out.println("thread2 -> object1");
+                    System.out.println("thread2 -> object2");
                     Thread.sleep(100);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
