@@ -29,6 +29,7 @@ public class Task implements Delayed {
                 TimeUnit.SECONDS);
     }
 
+    // используется методом put
     @Override // элементы в очереди будут храниться в отсортированном порядке
     public int compareTo(Delayed o) {
         LocalDateTime other = ((Task) o).time;
