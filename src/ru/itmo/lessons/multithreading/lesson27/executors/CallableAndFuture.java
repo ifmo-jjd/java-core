@@ -5,11 +5,14 @@ import ru.itmo.lessons.multithreading.lesson27.collections.Message;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class CallableAndFuture {
     public static void main(String[] args) {
+
         ExecutorService pool1 = Executors.newFixedThreadPool(3);
 
+        // Callable - задачи, которые будут выполнять потоки из пула
         Callable<Message> task = new MessageGenerator();
 
         ArrayList<Future<Message>> taskResults = new ArrayList<>();
@@ -23,6 +26,16 @@ public class CallableAndFuture {
             // void execute(Runnable command);
             // <T> Future<T> submit(Callable<T> task)
         }
+
+        // t1, t2
+        // общая коллекция, куда t1, t2 передают данные[]
+
+        // main поток ждет, когда t1, t2 закончат - join
+        // после чего может извлекать данные из общей коллекции
+
+        // Future[message]  -> task
+        // Future[message].get() -> message
+        // Future[null].get(время ожидания результата)
 
         /*for (Future<Message> taskResult : taskResults) {
             System.out.println("Ожидание получения данных");
@@ -53,6 +66,8 @@ public class CallableAndFuture {
         tasksList.add(new MessageGenerator());
         tasksList.add(new MessageGenerator());
 
+        // список задач [t1, t2, t3]
+        // список Future [c1, c2, c3]
         try {
             List<Future<Message>> resultsContainer = pool2.invokeAll(tasksList);
             pool2.shutdown();
@@ -65,5 +80,8 @@ public class CallableAndFuture {
         // задачу можно отменить future.cancel(true);
         // можно проверить, отменена ли задача future.isCanceled();
         // можно проверить, выполнена ли задача future.isDone();
+
+
+
     }
 }
