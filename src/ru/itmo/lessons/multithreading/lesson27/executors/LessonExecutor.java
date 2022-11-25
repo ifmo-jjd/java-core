@@ -4,7 +4,11 @@ import java.util.concurrent.*;
 
 public class LessonExecutor extends ThreadPoolExecutor {
     // очередь для задач мб свойством со значением по умолчанию
-    public LessonExecutor(int corePoolSize, int maximumPoolSize, long keepAliveTime, TimeUnit unit, BlockingQueue<Runnable> workQueue
+    public LessonExecutor(int corePoolSize,
+                          int maximumPoolSize,
+                          long keepAliveTime,
+                          TimeUnit unit,
+                          BlockingQueue<Runnable> workQueue
     ) {
 
         super(corePoolSize, // изначальное (минимальное) количество потоков
@@ -14,6 +18,10 @@ public class LessonExecutor extends ThreadPoolExecutor {
                 workQueue // очередь для задач
         );
     }
+
+    // corePoolSize - 4 [thread1, thread2, thread3, thread4]
+    // maximumPoolSize - 7 [thread1, thread2, thread3, thread4]
+    // keepAliveTime 5 MINUTES
 
     // можно переопределить любые доступные (согласно модификаторам) методы родителя
     @Override

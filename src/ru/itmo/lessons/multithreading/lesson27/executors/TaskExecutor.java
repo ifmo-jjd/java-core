@@ -1,10 +1,7 @@
 package ru.itmo.lessons.multithreading.lesson27.executors;
 
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 public class TaskExecutor {
     public static void main(String[] args) {
@@ -22,8 +19,9 @@ public class TaskExecutor {
         // 2. гибкого размера -
         // указывается минимальное и максимальное количество потоков
         // 3. пул для выполнения задач с указанным интервалом
-        // 4.
-        // 5.
+        // 4. extends ThreadPoolExecutor дает возможность создать пул гибкого размера +
+        // возможность переопределения некоторых методов пула
+        // 5. implements ExecutorService
 
         // fixedPool
         // thread1, thread2
@@ -86,7 +84,7 @@ public class TaskExecutor {
         ScheduledExecutorService delayTen =
                 Executors.newSingleThreadScheduledExecutor();
         // метод берет в расчет время выполнения задачи
-        everyThreeSecond.schedule(
+        delayTen.schedule(
                 ()->{
                     System.out.println("schedule 10");
                 },
@@ -94,7 +92,37 @@ public class TaskExecutor {
                 TimeUnit.SECONDS // секунд
         );
 
-        // TODO:: какие задачи не стоит передавать в пул потоков
+        LessonExecutor lessonExecutor = new LessonExecutor(
+                4,
+                7,
+                5,
+                TimeUnit.MINUTES,
+                new ArrayBlockingQueue<>(30)
+        );
+
+        lessonExecutor.execute(()->{
+            System.out.println("Задача №1");
+        });
+
+        // TODO:: какие задачи не стоит передавать в пул потоков???
+        // 1. если в задаче есть бесконечный цикл, для нее выделяется отдельный поток
+        // 2. задачи, которые заставляют потоки ожидать друг друга
+        // (например, через методы wait и notify)
+        // 3. задачи, в которых происходит ожидание данных
+
+        // изначальное количество потоков в пуле
+        // Runtime.getRuntime().availableProcessors() + 1
+
+        // изначальное количество потоков в пуле - для пулов, в которых происходит ожидание данных
+        // 2 * Runtime.getRuntime().availableProcessors() + 1
+
+        // утечка потока
+        // [, ,]
+        // [, , , t4, t5]
+        // thread1 -> t1
+        // thread2 -> t2
+        // thread3 -> t3
+
 
 
 
