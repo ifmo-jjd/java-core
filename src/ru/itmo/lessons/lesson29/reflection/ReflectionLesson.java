@@ -2,6 +2,7 @@ package ru.itmo.lessons.lesson29.reflection;
 
 import java.lang.reflect.*;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class ReflectionLesson {
     public static void main(String[] args) throws
@@ -24,6 +25,9 @@ public class ReflectionLesson {
         // Все конструкторы являются объектами типа Constructor
 
         // получение ссылок на классы
+        // 1. ИмяКласса.class
+        // 2. объект.getClass()
+
         Class<String> stringClass = String.class; // ссылка на класс String
         System.out.println("stringClass: " + stringClass);
 
@@ -50,6 +54,7 @@ public class ReflectionLesson {
                 + Arrays.toString(interfaces));
 
         // получение ссылки на родительский класс
+        // TextMessage -> Message -> Object -> ...
         System.out.println("родительский класс [1]: " +
                 textMessageClass.getSuperclass());
 
@@ -134,11 +139,13 @@ public class ReflectionLesson {
 
         Constructor<ReflectionTextMessage> tmConstructor =
                 textMessageClass.getDeclaredConstructor(String.class);
+        // NoSuchMethodException, если конструктор не найден
 
         // после получения ссылки на конструктор можно создавать экземпляр
         // в метод newInstance необходимо передать экземпляры, передаваемые в конструктор
         ReflectionTextMessage reflectMessage = tmConstructor.newInstance("Reflect Message");
         System.out.println("рефлексивный экземпляр: " + reflectMessage);
+        // InstantiationException
 
         // у созданного экземпляра можно вызывать методы и обращаться к свойствам через рефлексию
 
@@ -165,7 +172,8 @@ public class ReflectionLesson {
         // необходимо знать, последовательность аргументов выбранного метода и их типы
         Method setTextMethod = textMessageClass.getDeclaredMethod("setText", String.class);
         // вызов метода конкретного объекта, передача необходимых аргументов
-        setTextMethod.invoke(reflectMessage, "НОВЫЙ ТЕКСТ");
+        setTextMethod.invoke(reflectMessage, "НОВЫЙ ТЕКСТ"); // reflectMessage.setText("НОВЫЙ ТЕКСТ");
+
         System.out.println(reflectMessage.getText());
 
         Method printInfoMethod = textMessageClass.getDeclaredMethod("printInfo");
@@ -173,4 +181,10 @@ public class ReflectionLesson {
         printInfoMethod.invoke(reflectMessage);
 
     }
+
+
+    // Реализовать рекурсивный метод
+    // public static void reflectionToString(Object object) {
+    //    метод toString класса Object не использовать
+    // }
 }
