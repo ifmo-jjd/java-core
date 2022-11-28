@@ -182,9 +182,4 @@ public class ReflectionLesson {
 
     }
 
-
-    // Реализовать рекурсивный метод
-    // public static void reflectionToString(Object object) {
-    //    метод toString класса Object не использовать
-    // }
 }
