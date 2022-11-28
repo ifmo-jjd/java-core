@@ -1,7 +1,11 @@
 package ru.itmo.lessons.lesson29.annotation;
 
+@Config(configFile = "animals.properties")
+// @Config(configFile = "animals.properties", version = 2)
 public class Cat {
+    @Required
     private String name;
+    @Required
     private int age;
 
     public String getName() {
